@@ -1,0 +1,370 @@
+<html>
+<head>
+  <title>Calculator for Derek Griffiths' Watts Factor</title>
+  <script language='JavaScript'>
+  <!--------------------------------------------------------------------
+    Memory  = "0";      // initialise memory variable
+    pdet_Current = "0";      //   and value of Display ("current" value)
+    qmax_Current = "0";      //   and value of Display ("current" value)
+    vol_Current = "0";      //   and value of Display ("current" value)
+    watts_Current = "0";      //   and value of Display ("current" value)
+    vdet_Current  = "0";      //   and value of Display ("current" value)
+    Operation = 0;      // Records code for eg * / etc.
+    MAXLENGTH = 30;     // maximum number of digits before decimal!
+
+
+//=============================================================================================
+function Calculate()            //PERFORM CALCULATION (= button)
+ { 
+
+
+one=qmax_Current/1000000;
+two=(3*(10+eval(vol_Current))/1000000)/(4*3.1415927);
+
+three=Math.pow(two,0.6666666666)
+four=2*three;
+five=(eval(pdet_Current)+25)*98.1;
+vdet_Current=one/four;
+six=eval(vdet_Current)+(6/1000);
+seven=(25*98.1)*(6/1000);
+eight=five*six-seven;
+watts_Current=eight/(2*3.1415927);
+
+
+
+//vdet=(qmax_Current/1000000)/(2*Math.pow(3*((10+vol_Current)*(1/1000000))/(4*3.1415927)),0.6666666666);
+//watts_Current =(((pdet_Current+25)*98.1)*(vdet+(6/1000))-((25*98.1)*(6/1000)))/(2*3.1415927);
+//vdet_Current=vdet;
+document.Pdet.Pdet_Display.value = pdet_Current;
+document.Qmax.Watts_Display.value = watts_Current;
+document.Qmax.Vdet_Display.value = vdet_Current;
+
+ }
+
+//=============================================================================================
+
+
+
+//=============================================================================================
+function pdet_AddDigit(dig)          //ADD A DIGIT TO DISPLAY (keep as 'Current')
+ { if (pdet_Current.indexOf("!") == -1)  //if not already an error
+    { if (    (eval(pdet_Current) == 0)
+              && (pdet_Current.indexOf(".") == -1)
+         ) { pdet_Current = dig;
+           } else
+           { pdet_Current = pdet_Current + dig;
+           };
+      pdet_Current = pdet_Current.toLowerCase(); //FORCE LOWER CASE
+    } else
+    { pdet_Current = "Hint! Press 'AC'";  //Help out, if error present.
+    };
+   if (pdet_Current.indexOf("e0") != -1)
+     { var epos = pdet_Current.indexOf("e");
+       pdet_Current = pdet_Current.substring(0,epos+1) + pdet_Current.substring(epos+2);
+     };
+  if (pdet_Current.length > MAXLENGTH)
+     { pdet_Current = "Aargh! Too long"; //don't allow over MAXLENGTH digits before "." ???
+     };
+   	vdet_Current =qmax_Current;
+	watts_Current =pdet_Current;
+	document.Pdet.Pdet_Display.value = pdet_Current;
+//	document.Qmax.Watts_Display.value = watts_Current;
+//	document.Qmax.Vdet_Display.value = vdet_Current;
+ //  document.Qmax.Watts_Display.value = watts_Current;
+console.log(pdet_Current);
+ }
+//=============================================================================================
+function qmax_AddDigit(dig)          //ADD A DIGIT TO DISPLAY (keep as 'Current')
+ { if (qmax_Current.indexOf("!") == -1)  //if not already an error
+    { if (    (eval(qmax_Current) == 0)
+              && (qmax_Current.indexOf(".") == -1)
+         ) { qmax_Current = dig;
+           } else
+           { qmax_Current = qmax_Current + dig;
+           };
+      qmax_Current = qmax_Current.toLowerCase(); //FORCE LOWER CASE
+    } else
+    { qmax_Current = "Hint! Press 'AC'";  //Help out, if error present.
+    };
+   if (qmax_Current.indexOf("e0") != -1)
+     { var epos = qmax_Current.indexOf("e");
+       qmax_Current = qmax_Current.substring(0,epos+1) + qmax_Current.substring(epos+2);
+     };
+  if (qmax_Current.length > MAXLENGTH)
+     { qmax_Current = "Aargh! Too long"; //don't allow over MAXLENGTH digits before "." ???
+     };
+   document.Qmax.Qmax_Display.value= qmax_Current;
+
+ }
+//=============================================================================================
+function vol_AddDigit(dig)          //ADD A DIGIT TO DISPLAY (keep as 'Current')
+ { if (vol_Current.indexOf("!") == -1)  //if not already an error
+    { if (    (eval(vol_Current) == 0)
+              && (vol_Current.indexOf(".") == -1)
+         ) { vol_Current = dig;
+           } else
+           { vol_Current = vol_Current + dig;
+           };
+      vol_Current = vol_Current.toLowerCase(); //FORCE LOWER CASE
+    } else
+    { vol_Current = "Hint! Press 'AC'";  //Help out, if error present.
+    };
+   if (vol_Current.indexOf("e0") != -1)
+     { var epos = vol_Current.indexOf("e");
+       vol_Current = vol_Current.substring(0,epos+1) + vol_Current.substring(epos+2);
+     };
+  if (vol_Current.length > MAXLENGTH)
+     { vol_Current = "Aargh! Too long"; //don't allow over MAXLENGTH digits before "." ???
+     };
+   document.Pdet.Vol_Display.value = vol_Current;
+ }
+//=============================================================================================
+function qmax_Dot()                  //PUT IN "." if appropriate.
+ {
+  if ( qmax_Current.length == 0)     //no leading ".", use "0."
+    { qmax_Current = "0.";
+    } else
+    {  if (   ( qmax_Current.indexOf(".") == -1)
+            &&( qmax_Current.indexOf("e") == -1)
+          )
+         { qmax_Current = qmax_Current + ".";
+    };   };
+//  document.Qmax.Display.value = qmax_Current;
+ document.Qmax.Qmax_Display.value= qmax_Current;
+ }
+
+function DoExponent()
+ {
+  if ( Current.indexOf("e") == -1 )
+       { Current = Current + "e0";
+         document.Calculator.Display.value = Current;
+
+       };
+ }
+
+function PlusMinus()
+ {
+  if  (Current.indexOf("e") != -1)
+    { var epos = Current.indexOf("e-");
+      if (epos != -1)
+         { Current = Current.substring(0,1+epos) + Current.substring(2+epos); //clip out -ve exponent 
+         } else
+         { epos = Current.indexOf("e");
+           Current = Current.substring(0,1+epos) + "-" + Current.substring(1+epos); //insert -ve exponent
+         };
+    } else
+    {  if ( Current.indexOf("-") == 0 )
+         { Current = Current.substring(1);
+         } else
+         { Current = "-" + Current;
+         };
+       if (    (eval(Current) == 0)
+            && (Current.indexOf(".") == -1 )
+          ) { Current = "0"; };
+    };
+  document.Calculator.Display.value = Current;
+ }
+
+function Clear()                //CLEAR ENTRY
+ { Current = "0";
+   document.Calculator.Display.value = Current;
+ }
+
+function AllClear()             //Clear ALL entries!
+ { Current = "0";
+   Operation = 0;                //clear operation
+   Memory = "0";                  //clear memory
+   document.Calculator.Display.value = Current;
+ }
+
+function Operate(op)            //STORE OPERATION e.g. + * / etc.
+ {
+ if (Operation != 0) { Calculate(); }; //'Press "=" if pending operation!
+ // note that design is not good for showing *intermediate* results.
+
+  if (op.indexOf("*") > -1) { Operation = 1; };       //codes for *
+  if (op.indexOf("/") > -1) { Operation = 2; };       // slash (divide)
+  if (op.indexOf("+") > -1) { Operation = 3; };       // sum
+  if (op.indexOf("-") > -1) { Operation = 4; };       // difference
+
+  Memory = Current;                 //store value
+  // note how e.g. Current.value gives neither error nor value! ***
+  Current = "";
+  document.Calculator.Display.value = Current;
+ }
+
+
+function pdet_FixCurrent()
+ {
+  pdet_Current = document.Pdet.Display.value;
+  pdet_Current = "" + parseFloat(pdet_Current);
+  if (pdet_Current.indexOf("NaN") != -1)
+    { pdet_Current = "Aargh! I don't understand";
+    };
+  document.Pdet.Display.value = Current;
+ }
+
+function qmax_FixCurrent()
+ {
+  qmax_Current = document.Qmax.Display.value;
+  qmax_Current = "" + parseFloat(qmax_Current);
+  if (qmax_Current.indexOf("NaN") != -1)
+    { qmax_Current = "Aargh! I don't understand";
+    };
+  document.Qmax.Display.value = Current;
+ }
+
+  //--------------------------------------------------------------->
+  </script>
+
+</head>
+<body bgcolor="#F0F0FF">
+
+<div align="center"><table width="95%"><tr><td> <!-- OUTER MARGIN -->
+<font face="Verdana, Arial, Helvetica">
+
+<div align="center"><table border="0"><tr><td width="15%" align="center">
+</td>
+<td align="center"><font face="Verdana, Arial, Helvetica">
+  <h4>Griffiths' Watts Factor Calculator by Doug Small and Cat MacLeod</font><br>
+Assessment of Detrusor Contraction Strength or Contractility <br>Neurourol & Urodyn 10:1-18 (1991) Derek J. Griffiths</h4>
+</font></td>
+<td width="15%">&nbsp; </td>
+</tr></table>
+
+</div>
+
+
+
+<div align="center">
+<FORM name="Qmax">
+<table width="45%" border="4" bgcolor="#9999CC">
+<tr>      <!--OUTER MARGIN OF CALCULATOR-->
+<td><table align="center"><tr>  <td align="center"><input type="button" name="result" value="     calc WF    " OnClick="Calculate()"></td>
+</tr><tr>
+</tr><tr>
+</tr><tr>
+</tr></table>
+</td>
+<td align="center">
+
+<b><font face="Verdana, Arial, Helvetica" color="#000080" size="3">
+input Qmax<br></font>
+<font face="Courier" size="5">
+<input type="text" maxlength="40" size="25" name="Qmax_Display" onChange="qmax_FixCurrent()">
+</font></b>
+</td>
+<td align="center">
+<b><font face="Verdana, Arial, Helvetica" color="#000080" size="3">
+Vdet<br></font><input type="text" maxlength="40" size="25" name="Vdet_Display" onChange="qmax_FixCurrent()">
+</td>
+<td align="center">
+<b><font face="Verdana, Arial, Helvetica" color="#000080" size="3">
+Watts Factor<br></font><input type="text" maxlength="40" size="25" name="Watts_Display" onChange="qmax_FixCurrent()">
+</td></tr>
+<tr><td width="65%" align="center">                   <!--left panel------>
+
+<img src= "../underactive.jpg" width = 180>
+
+
+</td>                                   <!--end left panel-->
+<td width="35%" align="center">                     <!--right panel----->
+<table><tr>
+  <td><input type="button" name="seven" value="   7    " OnClick="qmax_AddDigit('7')"></td>
+  <td><input type="button" name="eight" value="   8    " OnClick="qmax_AddDigit('8')"></td>
+  <td><input type="button" name="nine" value="   9    " OnClick="qmax_AddDigit('9')"></td>
+</tr><tr>
+  <td><input type="button" name="four" value="   4    " OnClick="qmax_AddDigit('4')"></td>
+  <td><input type="button" name="five" value="   5    " OnClick="qmax_AddDigit('5')"></td>
+  <td><input type="button" name="six" value="   6    " OnClick="qmax_AddDigit('6')"></td>
+</tr><tr>
+  <td><input type="button" name="one" value="   1    " OnClick="qmax_AddDigit('1')"></td>
+  <td><input type="button" name="two" value="   2    " OnClick="qmax_AddDigit('2')"></td>
+  <td><input type="button" name="three" value="   3    " OnClick="qmax_AddDigit('3')"></td>
+</tr><tr>
+  <td><input type="button" name="plusmin" value="  +/-  " OnClick="PlusMinus()"></td>
+  <td><input type="button" name="one" value="   0    " OnClick="qmax_AddDigit('0')"></td>
+  <td><input type="button" name="two" value="    .    " OnClick="qmax_Dot()"></td>
+</tr>
+</table>
+
+
+</td>                                   <!--end right panel-->
+<td><img src="vdet.jpg"></td>
+<td><img src="WF.jpg"></td>
+</tr></table>                          <!--END OUTER MARGIN CALC------->
+</FORM></div>
+
+<div align="center">
+<FORM name="Pdet">
+<table width="45%" border="4" bgcolor="#9999CC"><tr>      <!--OUTER MARGIN OF CALCULATOR-->
+<td align="center">
+
+<b><font face="Verdana, Arial, Helvetica" color="#000080" size="3">
+Input Pdet<br></font>
+<font face="Courier" size="5">
+<input type="text" maxlength="40" size="25" name="Pdet_Display" onChange="FixCurrent()">
+</font></b>
+
+</td>
+<td><b><font face="Verdana, Arial, Helvetica" color="#000080" size="3">
+input volume<br></font>
+<font face="Courier" size="5">
+<input type="text" maxlength="40" size="25" name="Vol_Display" onChange="FixCurrent()">
+</font></b></td>
+</tr>
+<tr><td width="65%" align="center">                   <!--left panel------>
+
+<table><tr>
+  <td><input type="button" name="seven" value="   7    " OnClick="pdet_AddDigit('7')"></td>
+  <td><input type="button" name="eight" value="   8    " OnClick="pdet_AddDigit('8')"></td>
+  <td><input type="button" name="nine" value="   9    " OnClick="pdet_AddDigit('9')"></td>
+</tr><tr>
+  <td><input type="button" name="four" value="   4    " OnClick="pdet_AddDigit('4')"></td>
+  <td><input type="button" name="five" value="   5    " OnClick="pdet_AddDigit('5')"></td>
+  <td><input type="button" name="six" value="   6    " OnClick="pdet_AddDigit('6')"></td>
+</tr><tr>
+  <td><input type="button" name="one" value="   1    " OnClick="pdet_AddDigit('1')"></td>
+  <td><input type="button" name="two" value="   2    " OnClick="pdet_AddDigit('2')"></td>
+  <td><input type="button" name="three" value="   3    " OnClick="pdet_AddDigit('3')"></td>
+</tr><tr>
+  <td><input type="button" name="plusmin" value="  +/-  " OnClick="PlusMinus()"></td>
+  <td><input type="button" name="one" value="   0    " OnClick="pdet_AddDigit('0')"></td>
+  <td><input type="button" name="two" value="    .    " OnClick="Dot()"></td>
+</tr>
+</table>
+
+
+</td>                                   <!--end left panel-->
+<td><table><tr>
+  <td><input type="button" name="seven" value="   7    " OnClick="vol_AddDigit('7')"></td>
+  <td><input type="button" name="eight" value="   8    " OnClick="vol_AddDigit('8')"></td>
+  <td><input type="button" name="nine" value="   9    " OnClick="vol_AddDigit('9')"></td>
+</tr><tr>
+  <td><input type="button" name="four" value="   4    " OnClick="vol_AddDigit('4')"></td>
+  <td><input type="button" name="five" value="   5    " OnClick="vol_AddDigit('5')"></td>
+  <td><input type="button" name="six" value="   6    " OnClick="vol_AddDigit('6')"></td>
+</tr><tr>
+  <td><input type="button" name="one" value="   1    " OnClick="vol_AddDigit('1')"></td>
+  <td><input type="button" name="two" value="   2    " OnClick="vol_AddDigit('2')"></td>
+  <td><input type="button" name="three" value="   3    " OnClick="vol_AddDigit('3')"></td>
+</tr><tr>
+  <td><input type="button" name="plusmin" value="  +/-  " OnClick="PlusMinus()"></td>
+  <td><input type="button" name="one" value="   0    " OnClick="vol_AddDigit('0')"></td>
+  <td><input type="button" name="two" value="    .    " OnClick="Dot()"></td>
+</tr>
+</table>
+</td>
+</tr></table>                          <!--END OUTER MARGIN CALC------->
+</FORM></div>
+
+<!--separator------->
+
+
+
+
+<hr><a name="plan">
+
+</div></body>
+</html>
+
