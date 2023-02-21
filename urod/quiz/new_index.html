@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Urodynamic Quiz Program</title>
+</head>
+<body>
+<script language="JavaScript"><!--
+//Question object
+function Question() {
+ this.image=Question.arguments[0]
+ this.question=Question.arguments[1]
+ var n=Question.arguments.length
+ this.answers = new Array((n-3)/2)
+this.corrections = new Array((n-3)/2)
+ for(var i=2; i<(n-3)/2+2; ++i) {
+  this.answers[i-2]=Question.arguments[(i*2)-2]
+  this.corrections[i-2]=Question.arguments[(i*2)-1]
+}
+ this.correctAnswer=Question.arguments[n-1]
+}
+function readCookie() {
+ currentQuestion=0
+ numberOfQuestions=0
+ correctAnswers=0
+ score="None"
+ cookie=document.cookie
+ currentQuestion=getNumberValue(cookie,"currentQuestion")
+ numberOfQuestions=getNumberValue(cookie,"numberOfQuestions")
+ correctAnswers=getNumberValue(cookie,"correctAnswers")
+ if(numberOfQuestions>0)
+  score=Math.round(correctAnswers*100/numberOfQuestions)
+}
+function getNumberValue(s,n) {
+ s=removeBlanks(s)
+ var pairs=s.split(";")
+ for(var i=0;i<pairs.length;++i) {
+  var pairSplit=pairs[i].split("=")
+  if(pairSplit[0]==n) {
+   if(pairSplit.length>1) return parseInt(pairSplit[1])
+   else return 0
+  }
+ }
+ return 0
+}
+function removeBlanks(s) {
+ var temp=""
+ for(var i=0;i<s.length;++i) {
+  var c=s.charAt(i)
+  if(c!=" ") temp += c
+ }
+ return temp
+}
+function askNextQuestion() {
+document.writeln("<table><tr><td>")
+ document.writeln('<img src="'+qa[currentQuestion].image+'" width=800>')
+document.writeln("</td><td>")
+ document.writeln("<font face='arial'><H4 ALIGN='CENTER'>"
+  +qa[currentQuestion].question+"</H4>")
+ displayAnswers()
+document.writeln("</td><tr></table>")
+}
+function displayAnswers() {
+ document.writeln('<FORM NAME="answerForm">')
+ for(var ii=0;ii<qa[currentQuestion].answers.length;++ii) {
+  document.writeln('<H4 ALIGN="CENTER">')
+  document.writeln('<INPUT TYPE="RADIO" NAME="answer"> ')
+  document.writeln(qa[currentQuestion].answers[ii])
+ // document.writeln(qa[currentQuestion].corrections[ii])
+  if(ii+1==qa[currentQuestion].answers.length) {
+   document.writeln('<BR><BR><INPUT TYPE="BUTTON"')
+   document.writeln('NAME="continue" VALUE="Continue" ')
+   document.writeln(' onClick="checkAnswers()">')
+  }
+  document.writeln('</H4>')
+ }
+document.writeln('<textarea name="Response" rows="3" cols="40"></textarea>')
+document.writeln('</FORM>')
+}
+function checkAnswers() {
+ var numAnswers=qa[currentQuestion].answers.length
+ var correctAnswer=qa[currentQuestion].correctAnswer
+ for(var jj=0;jj<numAnswers;++jj) {
+  if(document.answerForm.elements[jj].checked) {
+   if(jj==correctAnswer){
+	msg=qa[currentQuestion].corrections[jj]
+    correct()
+     break
+   }else{
+	msg=qa[currentQuestion].corrections[jj]
+     incorrect()
+     break
+   }
+  }
+  if(jj==numAnswers){
+   incorrect()
+   break
+  }
+ }
+}
+function correct() {
+ ++currentQuestion
+ ++numberOfQuestions
+ ++correctAnswers
+ updateCookie()
+ alert(msg)
+ location.reload(true)
+}
+function incorrect() {
+++currentQuestion
+ ++numberOfQuestions
+ updateCookie()
+ alert(msg)
+ location.reload(true)
+}
+function updateCookie() {
+ document.cookie="currentQuestion="+currentQuestion
+ document.cookie="numberOfQuestions="+numberOfQuestions
+ document.cookie="correctAnswers="+correctAnswers
+}
+function endQuiz() {
+ document.writeln('<FORM NAME="finishedForm">')
+ document.write("<H4 ALIGN='CENTER'>")
+ document.write("Congratulations! You have finished this quiz.")
+ document.write('<BR><BR><INPUT TYPE="BUTTON" ')
+ document.writeln('NAME="restart" VALUE="Restart" ')
+ document.writeln(' onClick="restartQuiz()">')
+ document.writeln("</H4>")
+ document.writeln('</FORM>')
+document.writeln(' <form name="mailer" action="mailto:doug.small@ggc.scot.nhs.uk" method="post" enctype="text/plain" >')
+document.writeln('Name:<input type="text" value="doug" name="FirstName">')
+document.writeln('Email:<input type="text" name="Email">')
+document.writeln('score:<input type="hidden" name="score">')
+document.mailer.score.value = correctAnswers
+document.writeln('<input type="submit" name="submit" value="Submit Answers">')
+document.writeln('</form>')
+document.cookie="currentQuestion=0"
+document.cookie="numberOfQuestions=0"
+document.cookie="correctAnswers=0"
+}
+function restartQuiz() {
+ location.reload(true)
+}
+// --></script>
+<script language="JavaScript"><!--
+//Heading displayed on the quiz page
+pageHeading="Urodynamic Quiz by Doug Small"
+//Questions
+// qa[0] = new Question("./images/2cancel.jpg",
+qa = new Array()
+qa[0] = new Question("./images/2cancel.jpg",
+"What type of detrusor function is this?",
+"Normal",
+"correct",
+"overactive",
+"incorrect - lack of any phasic contraction",
+"low compliance",
+"incorrect - no rise in pressure",
+"probably neurogenic overactivity",
+"incorrect lack of any phasic contraction",
+0)
+qa[1] = new Question("./images/do_cancel.jpg",
+"What type of detrusor function is this?",
+"Normal",
+"incorrect - there is a phasic contraction at 01:30",
+"overactive",
+"correct",
+"low compliance",
+"incorrect there is a phasic contraction at 01:30",
+"probably neurogenic overactivity",
+"incorrect - there is a phasic contraction but it is more like idiopathic",
+1)
+qa[2] = new Question("./images/040.jpg",
+"What type of detrusor function is this?",
+"Normal",
+"incorrect note high phasic pressure contractions",
+"overactive",
+"partially correct note the high phasic pressure",
+"low compliance",
+"incorrect note the phasic pressure contractions",
+"probably neurogenic overactivity",
+"correct very high pressure",
+3)
+qa[3] = new Question("./images/088.jpg",
+"What type of voiding function is this?",
+"Normal",
+"incorrect - very high voiding pressure and low flow",
+"obstructed",
+"correct",
+"unobstructed",
+"incorrect - very high voiding pressure and low flow",
+"probably dyssynergic",
+"incorrect although obstructed, it is synergic",
+1)
+qa[4] = new Question("./images/095.jpg",
+"What type of voiding function is this?",
+"Normal",
+"incorrect - this is a poor flow",
+"obstructed",
+"incorrect - although flow is poor - it is underactive not obstructed",
+"dyssynergic",
+"incorrect - it is synergic",
+"underactive",
+"correct - also unobstructed",
+3)
+qa[5] = new Question("./images/038.jpg",
+"This voiding study is from a patient with a spinal injury. Is the lesion most likely to be",
+"sacral",
+"correct - this type of acontractile bladder with abdominal straining is typical of a sacral lesion",
+"suprasacral",
+"incorrect - one would expect a suprasacral lesion to have flow, but dyssynergic",
+"it is impossible to say",
+"incorrect - it is possible to say with some degree of certainty that it is sacral",
+0)
+qa[6] = new Question("./images/046.jpg",
+"This voiding study is from a patient with a spinal injury. Is the lesion most likely to be",
+"sacral",
+"incorrect - a sacral lesion typically has an acontractile bladder with abdominal straining",
+"suprasacral",
+"correct - there is flow but it is dyssynergic",
+"it is impossible to say",
+"incorrect - it is possible to say with some degree of certainty that it is suprasacral",
+1)
+qa[7] = new Question("./images/transducers.jpg",
+"Fluid filled pressure transducers should be",
+"Connected to the patient then zeroed",
+"incorrect - this is a common mistake, but doesn't allow correct abdominal pressures",
+"zeroed to atmospheric pressure",
+"incorrect - we need to add while at the height of the symphysis pubis",
+"zeroed to atmospheric pressure while at the height of the symphysis pubis",
+"correct",
+2)
+qa[8] = new Question("./images/do_rectal.jpg",
+"What is happening in this trace ?",
+"Bad cancellation",
+"incorrect the spikes are well cancelled",
+"Impossible to say the detrusor pressure is unreadable",
+"incorrect: detrusor pressure is difficult to read but vesical is not",
+"Detrusor overactivity plus rectal activity",
+"correct: although pdet is unreadable pves shows overactivity",
+2)
+qa[9] = new Question("./images/max_det_freq.jpg",
+"What is happening here ?",
+"artefact of unknown origin",
+"incorrect",
+"Detrusor overactivity of an extremely frequent repetition",
+"correct",
+"transducers connected the wrong way round",
+"incorrect although this is a good guess",
+1)
+qa[10] = new Question("./images/cancel.jpg",
+"what does this trace from a provocative test show ? The tags at the top are NL no leakage   L leakage   V valsalva manoeuvre",
+"detrusor overactivty",
+"incorrect  flat detrusor trace",
+"Urodynamic stress incontinece",
+"correct",
+"normal closure mechanism",
+"incorrect there is leakage",
+"attempt to void",
+"incorrect that would not be a valsalva",
+1)
+qa[11] = new Question("./images/compliance.jpg",
+"What detrusor function is this ?",
+"Low Compliance",
+"correct",
+"Normal",
+"incorrect",
+"Detrusor overactivity",
+"incorrect",
+0)
+qa[12] = new Question("./images/compliance2.jpg",
+"What detrusor function is this ?",
+"Low Compliance",
+"correct",
+"Normal",
+"incorrect",
+"Detrusor overactivity",
+"incorrect",
+0)
+qa[13] = new Question("./images/terminal.jpg",
+"what type of detrusor function is this?",
+"normal",
+"incorrect",
+"detrusor overactivity",
+"incorrect",
+"terminal detrusor overactivity",
+"correct",
+2)
+qa[14] = new Question("./images/high_upp.jpg",
+"what sort of urethral pressure profile is this",
+"male normal",
+"incorrect",
+"`female normal",
+"incorrect",
+"male prostatectomy",
+"incorrect",
+"female very high",
+"correct",
+3)
+qa[15] = new Question("./images/2lado.jpg",
+"what type of filling functionis this?",
+"normal detrusor function",
+"incorrect",
+"normal detrusor function with rectal activity",
+"incorrect",
+"overactive detrusor",
+"correct",
+"low compliance",
+"incorrect",
+2)
+qa[16] = new Question("./images/bad_cancel.jpg",
+"what is shown here?",
+"detrusor overactivity",
+"incorrect",
+"normal detrusor function with bad cancellation",
+"correct",
+"normal detrusor function",
+"incorrect",
+1)
+qa[17] = new Question("./images/good_ud_practice.jpg",
+"what does the ICS stipulate as the minimum accuracy for pressure measurements",
+"+/- 1 % of F.S.D.",
+"incorrect",
+"+/- 1 mm Hg",
+"incorrect",
+"+/-  1 cm H2O",
+"correct",
+"it doesn't",
+"incorrect",
+2)
+qa[18] = new Question("./images/lpurr_2.jpg",
+"what is the name of the dotted line",
+"passive urethral resistance relation",
+"correct",
+"bladder output relation",
+"incorrect",
+"abrams - griffiths nomogram",
+"incorrect",
+"blavias-groutz nomogram",
+"incorrect",
+0)
+qa[19] = new Question("./images/schafer.jpg",
+"what is the name of this nomogram",
+"abrams griffiths",
+"incorrect",
+"Blaivas groutz",
+"incorrect",
+"schafer",
+"correct",
+"Haylen",
+"incorrect",
+2)
+qa[20] = new Question("./images/schafer.jpg",
+"what do the dotted lines delineate?",
+"regions of differing urethral resistance",
+"incorrect",
+"regions of differing urethral pressure",
+"incorrect",
+"regions of differing obstruction",
+"incorrect",
+"regions of differing detrusor contractility",
+"correct",
+3)
+qa[21] = new Question("./images/do_cancel.jpg",
+"is this believable detrusor overactiviy ?",
+"Yes",
+"correct",
+"No - amplitude too small",
+"incorrect",
+"no - cancellation is off",
+"incorrect",
+0)
+qa[22] = new Question("./images/Di_lim02.gif",
+"is this believable detrusor overactiviy ?",
+"no the amplitude is too small, the ICS demands > 15 cm H2O",
+"incorrect the ICS does not",
+"there is no DO to be seen on these traces",
+"incorrect",
+"yes",
+"correct, the ICS has no limit to amplitude",
+2)
+qa[23] = new Question("./images/normal_female_void_low_pdet.jpg",
+"how would you describe this void ?",
+"low powered detrusor contraction",
+"incorrect - the power is seen in the flow",
+"normal female void",
+"correct - many females void with low detrusor pressure",
+"normal male void",
+"incorrect - a male in unlikely to void with SUCH a low detrusor pressure",
+"obstructed voiding",
+"are you kidding ?",
+1)
+qa[24] = new Question("./images/boo_index.jpg",
+"how would you describe this number (-10) top left?",
+"griffiths' watts factor",
+"incorrect - watts factor equation is more complicated",
+"BOO index",
+"correct - pdet qmax minus twice qmax",
+"compliance",
+"incorrect - complaince is a filling parameter",
+"amplitude of overactive contraction",
+"incorrect this is a voiding study",
+1)
+// right here
+// --></script>
+<script language="JavaScript"><!--
+readCookie()
+document.writeln("<font face='arial'><H3 ALIGN='CENTER'>"+pageHeading+"</H3></font>")
+document.writeln("<font face='arial'><P ALIGN='left'><B>Questions: "
+ +numberOfQuestions+"<BR>")
+document.writeln("Correct Answers: "+correctAnswers+"<BR>")
+document.writeln("Score: "+score+"</B></P>")
+if(currentQuestion >= qa.length) endQuiz()
+else askNextQuestion()
+// --></script>
+</body>
+</html>
+
+<!-- Localized -->
