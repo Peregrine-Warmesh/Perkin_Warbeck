@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelda - Corrected Image Layout</title>
+    <!-- Load Tailwind CSS for responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            padding: 1rem;
+        }
+        img {
+            border-radius: 0.5rem; /* Adds rounded corners to images */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            object-fit: cover; /* Ensures images fill their space without distortion */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 flex flex-col items-center">
+
+    <!-- Main header, centered and styled -->
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-8 tracking-wide">
+        My Name is Zelda
+    </h1>
+
+    <!--
+      This is the main flex container that holds everything.
+      It uses `flex-row` to arrange the main sections side-by-side.
+      `justify-center` centers the content horizontally.
+      `items-stretch` is the key here; it makes the columns stretch to the same height.
+    -->
+    <div class="flex flex-row items-stretch justify-center w-full max-w-5xl space-x-4 mb-4">
+
+        <!--
+          This column holds the first image and is set to 33% width.
+        -->
+        <div class="w-[33%] flex flex-col items-stretch">
+            <!-- Image 1, now in its own column -->
+            <img src="refkectionjpg.jpg" alt="islay" class="w-full h-full">
+        </div>
+
+        <!--
+          This is the second column, set to 43% width, and holds Image 2.
+        -->
+        <div class="w-[43%] flex flex-col items-stretch">
+            <img src="ball.jpg" alt="ball" class="w-full h-full">
+        </div>
+
+        <!--
+          This is the third column, set to 24% width, which holds images 3 and 4 stacked.
+          It's a nested flex container with `flex-col` (flex-direction: column).
+          `items-stretch` ensures the stacked images fill the full width of this column.
+        -->
+        <div class="w-[24%] flex flex-col items-stretch space-y-4">
+            <!--
+              Image 3 is shorter and takes up less vertical space.
+              The `h-1/2` class here is a placeholder to demonstrate the stacking,
+              but `h-full` on the parent container ensures they fill the vertical space.
+            -->
+            <img src="banner.jpg" alt="banner" class="w-full">
+            
+            <!--
+              Image 4 is placed below Image 3, taking up the remaining space.
+              The `w-full` class ensures it matches the width of the column.
+            -->
+            <img src="coruisk.jpg" alt="coruisk" class="w-full">
+        </div>
+    </div>
+<!--
+      New text container below the main images.
+      - `w-full max-w-5xl` ensures it matches the width of the image container above.
+      - `mt-8` adds spacing from the section above.
+      - `p-6` adds padding for readability.
+      - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
+    -->
+    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <p class="text-gray-700 leading-relaxed">
+            I came here from Romania<br>
+            My typoeing is not of tjhe best becose<br>
+            1) Englsih is not mf  first language<br>
+            2) I don't jave fionger s - i H ve godggy paws<br><br>
+            
+            My so-called "owwners" don't know much about what haapapqwenbd to me there -<br>
+            but they did know I needed a bath and a groom the mainuyet  I got here.<br><br>
+            
+            Apparebtly I was 21 kilogammes when I got here. The vet said to the new "owners " thay must ffed me.<br>
+            this is the best thing the vett has evcer done.<br>
+            mostly she / he just puts their finger up my bottom.<br>
+            Or takes my teeths out.<br><br>
+            
+            Here are some pictures of me in Roamasnia  and then after I got to langbank.
+        </p>
+    </div>
+    <!-- 
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="70251916_966033240406508_7349044005323145216_n.jpg" alt="New Image A" class="w-full">
+            <p class="mt-2 text-center text-gray-600">This is me with my great friend Sandrine.
+I cannot speak highly enough of Sandrine.
+It is not just me but lots of other
+dogs that she has helped find -
+what I believe the humans call
+- their "forever home. It looks licke
+Sandrine is strangling me
+biut - belive me - that isn't soe"..</p>
+        </div>
+
+        <!--
+          Container for the second image and its text.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="lead-Rom.jpg" alt="New Image B" class="w-full">
+            <p class="mt-2 text-center text-gray-600">This is me gettign walked by Sandrine.
+This is the photo which the New Mistress saw
+that made her fall in love with me
+My Godmother who is called The Clokc showed
+this picture totjhe New Mistress.</p>
+        </div>
+    </div>
+ <!-- 
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="happybus.jpg" alt="New Image A" class="w-full">
+            <p class="mt-2 text-center text-gray-600">This is me in the "Happy Bus" which is really a ford
+transit van that I was in for 48 hours. I endded up
+in a car park in a place called notttinham.
+The swaunged the doors
+open ther ewas the newm master and mistress
+AAnd Boy did I do the toilet
+when the New Master stopped for petrol at Penrith.
+The New MAster was not meant to do that as some
+reckue dogs run for the hills. Trust me - I was not going
+to do that once I realsied ther luxxury of a VW POllo</p>
+        </div>
+
+        <!--
+          Container for the second image and its text.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="IMG_20191017_152532777.jpg" alt="New Image B" class="w-full">
+            <p class="mt-2 text-center text-gray-600">This is me in the New "Master's" VW Polo. He very quickly had to get a new car
+because of me. Please iggnore wjhat I saud about the Luxxury of the Pollo.
+after I brokkke the Neww Master's coffeec cup holder we gnew a bigger
+car was on the cards</p>
+        </div>
+</body>
+</html>
