@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelda - Corrected Image Layout</title>
+    <!-- Load Tailwind CSS for responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            padding: 1rem;
+        }
+        img {
+            border-radius: 0.5rem; /* Adds rounded corners to images */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            object-fit: cover; /* Ensures images fill their space without distortion */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 flex flex-col items-center">
+
+    <!-- Main header, centered and styled -->
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-8 tracking-wide">
+        My Name is Zelda
+    </h1>
+
+    <!--
+      This is the main flex container that holds everything.
+      It uses `flex-row` to arrange the main sections side-by-side.
+      `justify-center` centers the content horizontally.
+      `items-stretch` is the key here; it makes the columns stretch to the same height.
+    -->
+    <div class="flex flex-row items-stretch justify-center w-full max-w-5xl space-x-4 mb-4">
+
+        <!--
+          This column holds the first image and is set to 33% width.
+        -->
+        <div class="w-[33%] flex flex-col items-stretch">
+            <!-- Image 1, now in its own column -->
+            <img src="refkectionjpg.jpg" alt="islay" class="w-full h-full">
+        </div>
+
+        <!--
+          This is the second column, set to 43% width, and holds Image 2.
+        -->
+        <div class="w-[43%] flex flex-col items-stretch">
+            <img src="ball.jpg" alt="ball" class="w-full h-full">
+        </div>
+
+        <!--
+          This is the third column, set to 24% width, which holds images 3 and 4 stacked.
+          It's a nested flex container with `flex-col` (flex-direction: column).
+          `items-stretch` ensures the stacked images fill the full width of this column.
+        -->
+        <div class="w-[24%] flex flex-col items-stretch space-y-4">
+            <!--
+              Image 3 is shorter and takes up less vertical space.
+              The `h-1/2` class here is a placeholder to demonstrate the stacking,
+              but `h-full` on the parent container ensures they fill the vertical space.
+            -->
+            <img src="banner.jpg" alt="banner" class="w-full">
+            
+            <!--
+              Image 4 is placed below Image 3, taking up the remaining space.
+              The `w-full` class ensures it matches the width of the column.
+            -->
+            <img src="coruisk.jpg" alt="coruisk" class="w-full">
+        </div>
+    </div>
+</body>
+</html>
