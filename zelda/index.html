@@ -1737,6 +1737,46 @@ the master and the mistress love ingrid so they made her a thank you card
         </p>
     </div>
  <!-- ==========================================END text box===========================================================================================
+<!--
+This is the new row with two images.
+- w-2/3 sets the total width of this row to 66% of the page.
+- mx-auto centers the block horizontally.
+- space-x-4 adds a gap between the two columns.
+- mt-8 adds a margin to the top to separate it from the row above.
+-->
+<div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+  <!--
+  Container for the first image and its text.
+  The `flex-1` class makes each container take up an equal amount of space
+  within the parent div, which helps with horizontal alignment.
+  -->
+  <div class="flex flex-col items-center flex-1">
+    <!--
+    The key change is here:
+    - h-96 sets a fixed height for the image.
+    - w-auto allows the width to adjust automatically to preserve the aspect ratio.
+    - object-cover scales the image to fill the container while cropping any excess,
+      which is exactly what's needed to fix the sizing problem.
+    -->
+    <img src="ingrid1.webp" alt="Ingrid lecturing about dogs' teeth" class="h-96 w-auto object-cover rounded-lg">
+    <p class="text-lg mt-2 text-center text-gray-600">
+      This is Ingrid giving a lecture to clever people about dog's teeth.
+    </p>
+  </div>
+
+  <!--
+  Container for the second image and its text.
+  -->
+  <div class="flex flex-col items-center flex-1">
+    <!--
+    The same classes are applied here to ensure both images have the same height and behavior.
+    -->
+    <img src="ingrid2.jpg" alt="A car given to Ingrid" class="h-96 w-auto object-cover rounded-lg">
+    <p class="text-lg mt-2 text-center text-gray-600">
+      This is the car that master and mistress made for Ingrid to thank her for her care for me. The master used something called ChatGPT.
+    </p>
+  </div>
+</div>
 <!-- ====================================2 images =========================================================================================
       This is the new row with two images.
       - w-1/2 sets the total width of this row to 50% of the page.
