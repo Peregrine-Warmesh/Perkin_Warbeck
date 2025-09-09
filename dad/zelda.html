@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The official home page for Zelda the Wonder Dog, rescued from Romania and now a denizen of langbank, Scotland where she has lots of pals.">
+    <title>Ramsay George Small</title>
+<!-- This line tells search engines where to find your sitemap.xml file. -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <!-- Load Tailwind CSS for responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            padding: 1rem;
+        }
+        img {
+            border-radius: 0.5rem; /* Adds rounded corners to images */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            object-fit: cover; /* Ensures images fill their space without distortion */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 flex flex-col items-center">
+
+    <!-- Main header, centered and styled -->
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-8 tracking-wide">
+        Ramsay George Small
+    </h1>
+
+    <!--
+      This is the main flex container that holds everything.
+      It uses `flex-row` to arrange the main sections side-by-side.
+      `justify-center` centers the content horizontally.
+      `items-stretch` is the key here; it makes the columns stretch to the same height.
+    -->
+    <div class="flex flex-row items-stretch justify-center w-full max-w-6xl space-x-4 mb-4">
+
+        <!--
+          This column holds the first image and is set to 33% width.
+        -->
+        <div class="w-[33%] flex flex-col items-stretch">
+            <!-- Image 1, now in its own column -->
+            <img src="./cropped/banner1.jpg" alt="islay" class="w-full h-full">
+        </div>
+
+        <div class="w-[33%] flex flex-col items-stretch">
+            <!-- Image 1, now in its own column -->
+            <img src="./cropped/banner2.jpg" alt="islay" class="w-full h-full">
+        </div>
+
+        <!--
+          This is the second column, set to 43% width, and holds Image 2.
+        -->
+        <div class="w-[34%] flex flex-col items-stretch">
+            <img src="./cropped/banner3.jpg" alt="ball" class="w-full h-full">
+        </div>
+
+        
+    </div>
+<!--
+      New text container below the main images.
+      - `w-full max-w-5xl` ensures it matches the width of the image container above.
+      - `mt-8` adds spacing from the section above.
+      - `p-6` adds padding for readability.
+      - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
+    -->
+    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <p class="text-lg text-lgtext-gray-700 leading-relaxed">
+          Ramsay George Small was born on the 5th of February 1930, in Calcutta, the third of the four children of Robert and Anne Small. <BR>His father a jute mill manager remained in India with his wife throughout the 1930s, although Ramsay came home at the tender age of 2, to be looked after by his grandmother, a woman who was to have a profound influence on his upbringing and values.<BR>
+
+He was educated at Rosebank School, then Harris Academy, and his academic ability allowed him to go on to study medicine at Queens College Dundee, then part of St Andrews University.
+<BR>
+As a young man, at school and then university, he had also committed himself to the three other things, which, together with medicine, would make up the 4 cornerstones of what, no-one can deny, was a fulfilled life: his Christian faith, his family, and his love of music.
+<BR>
+Brought up in a Christian home, he had become a Christian himself, and was baptised in Rattray Street Baptist Church in 1945. He would go on to become church organist and choirmaster there. Through his involvement with the vibrant young evangelical community in Dundee at the time, he met, and later fell for Aileen Masterton. They married in 1952, when Ramsay was still a student, and set up home together.
+<BR>
+In 1954, he graduated and began work, at Stracathro Hospital, and Maryfield Dundee. Ronald was born that year, with Douglas following in 1955. Where they found time for family life when he was working the sort of hours junior doctors had to work in the 1950s is a mystery to me, and national service in the RAMC must have come as something of a relief.
+<BR><BR>
+If you go to the village museum in Crail, you can find an old black and white photograph of the foreign language school, mid1950s, and hiding in the corner is a character who looks suspiciously like Adolf Hitler on the run. <BR>This is my father, providing medical care to would be spies learning Russian in the East Neuk of Fife.
+
+			
+            
+        </p>
+    </div>
+<!-- ====================================2 B&W images of the RAMC =========================================================================================
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-1/2 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+     
+
+        <!--
+          Container for the second image and its text.
+        -->
+        <div class="flex flex-col items-center w-7/12">
+            <img src="crail2.jpg" alt="New Image B" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600">RAMC</p>
+        </div>
+        <div class="flex flex-col items-center w-5/12">
+            <img src="crail3.jpg" alt="New Image B" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600">zoom - ramsay far right</p>
+        </div>
+</div>
+ 
+ <!-- ========================END 2 B&W images of the RAMC====================================================================================================
+<!-- ===============================================1 image plus text =================================================================================
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="crail1.jpg" alt="New Image A" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600">This is the former Royal Naval Air Station, HMS Jackdaw at Crail which became the Joint Services School for Linguists (JSSL). <BR>Prominent JSSL alumni include author Michael Frayne, actor Alan Bennett, and documentary filmmaker Leslie Woodhead.</p>
+        </div>
+
+        <!--
+          Container for the second image and its text.
+        -->
+
+</div>
+ <!-- =======================================================END 1 image plus text ================================================================
+<!-- ======================== 2 images=============================================================================================================
+
+    <!--  
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="crail4.avif" alt="New Image A" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600"></p>
+        </div>
+
+        <!--
+          Container for the second image and its text.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="crail5.avif" alt="New Image B" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600"></p>
+        </div>
+    </div>
+ <!-- ===============================================2 images =================================================================================
+<!-- text container======================================
+      New text container below the main images.
+      - `w-full max-w-5xl` ensures it matches the width of the image container above.
+      - `mt-8` adds spacing from the section above.
+      - `p-6` adds padding for readability.
+      - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
+    -->
+    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <p class="text-lg text-lgtext-gray-700 leading-relaxed">
+            <center>
+            
+            Some of the infrastructure still exists</center>
+        </p>
+    </div>
+<!-- text container======================================
+    <!--
+
+<!-- text container======================================
+      New text container below the main images.
+      - `w-full max-w-5xl` ensures it matches the width of the image container above.
+      - `mt-8` adds spacing from the section above.
+      - `p-6` adds padding for readability.
+      - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
+    -->
+    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <p class="text-lg text-lgtext-gray-700 leading-relaxed">
+            
+            
+          By 1958, Kenneth had arrived, and the family moved to Ayrshire, as by then Ramsay had completed his Diploma in Public Health and decided to pursue a career in that specialty. He returned to Dundee in 1961, now with four boys, to take up the post under the Medical Officer of Health of the city, Ian Weir, eventually becoming a principal medical officer there, a position he held until 1974.
+
+1961 also saw the beginning of his 42 year relationship with 46 Monifieth Road, and with Broughty Ferry Baptist Church. 
+        </p>
+    </div>
+<!-- ===============================================1 image plus text =================================================================================
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="5327097_5c1a650a.jpg" alt="New Image A" class="w-s/3">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600">Broughty Ferry Baptist Church</p>
+        </div>
+
+        <!--
+          Container for the second image and its text.
+        -->
+
+</div>
+ <!-- =======================================================END 1 image plus text ================================================================
+ 
+<!-- ===========================================================================text container======================================
+      New text container below the main images.
+      - `w-full max-w-5xl` ensures it matches the width of the image container above.
+      - `mt-8` adds spacing from the section above.
+      - `p-6` adds padding for readability.
+      - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
+    -->
+    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <p class="text-lg text-lgtext-gray-700 leading-relaxed">
+            
+            
+          At the time a tiny fellowship, struggling to survive, my mother tells of an evening when my father turned up for a midweek prayer meeting to find only he and Wyn Christie there. Downhearted, and close to giving up, my father listened to Wyn's earnest prayers for the growth of the church, and they carried on. I think they agreed not to close the meeting with a hymn that evening.
+<BR>
+I remember Sunday evenings, the four of us dressed in our kilts, when the Small family made up half the congregation. Fortified with fruit gums from Betty Kinloch, we would sit under the watching eyes of our parents. I well remember Douglas' s disgust at being denied the chance to watch the 1970 World Cup final, because it was on a Sunday evening and we had to go to church.
+<BR>
+His faithfulness in the small things of the Christian life were always as important to him as were the grander schemes of church life. He was a good listener, a comforter, a man of wise council, as well as a preacher and teacher of the word of God.
+<BR>
+By the 1970s, Ramsay had become involved with the Baptist Union of Scotland at a national level, and became its President in 1972. By then he was also Secretary in Broughty Ferry, and was preparing for a change of direction in his career, brought on by health service re-organisaiton in 1974. That Presidential year, I was too wee to be left at home, and my mother and I must have heard him preach sermons in about 20 churches throughout the length and breadth of Scotland. It must have been tempting just to use the same one every week; not my father. <BR>And still he found time to preach in Broughty Ferry every month, write the magazine, take his turn on the organ rota, and take us to exotic, far away places for our holidays. Strontian, Wester Ross, Skye, Inverary rain and midgies.
+        </p>
+    </div>
+<!-- ============================================================END text container======================================
+
+<!-- ======================== 2 images=============================================================================================================
+
+    <!--  
+      This is the new row with two images.
+      - w-1/2 sets the total width of this row to 50% of the page.
+      - mx-auto centers the block horizontally.
+      - space-x-4 adds a gap between the two columns.
+      - mt-8 adds a margin to the top to separate it from the row above.
+    -->
+    <div class="flex flex-row justify-center w-2/3 mx-auto space-x-4 mt-8">
+        
+        <!--
+          Container for the first image and its text.
+          The `flex-1` class makes each container take up an equal amount of space
+          within the 50% width parent.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="elgol.jpg" alt="New Image A" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600"></p>
+        </div>
+
+        <!--
+          Container for the second image and its text.
+        -->
+        <div class="flex flex-col items-center flex-1">
+            <img src="dad3.jpg" alt="New Image B" class="w-full">
+            <p class="text-lg text-lgmt-2 text-center text-gray-600"></p>
+        </div>
+    </div>
+ <!-- ===============================================2 images =================================================================================
+
+<!-- ===========================================================================text container======================================
+      New text container below the main images.
+      - `w-full max-w-5xl` ensures it matches the width of the image container above.
+      - `mt-8` adds spacing from the section above.
+      - `p-6` adds padding for readability.
+      - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
+    -->
+    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <p class="text-lg text-lgtext-gray-700 leading-relaxed">
+            <center>
+            
+Skye, Wester Ross and midges
+            </center>
+        </p>
+    </div>
+<!-- ============================================================END text container======================================
+</body>
+</html>
