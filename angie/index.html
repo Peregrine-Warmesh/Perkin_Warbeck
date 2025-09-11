@@ -44,7 +44,7 @@ Tribute by Lorna Kennedy to her father Dr Iain Small
             
         </p>
     </div><BR>
-    <!--
+    <!--============================================3 image container-==================================================================
       This is the main flex container that holds everything.
       It uses `flex-row` to arrange the main sections side-by-side.
       `justify-center` centers the content horizontally.
@@ -74,6 +74,8 @@ Tribute by Lorna Kennedy to her father Dr Iain Small
 
         
     </div>
+
+    <!--============================================END 3 image container-==================================================================
 <!--====================================text container==================================================================
       New text container below the main images.
       - `w-full max-w-5xl` ensures it matches the width of the image container above.
@@ -388,6 +390,41 @@ Moving from their home in Dundee was difficult for Mum and Dad at first. They kn
         </p>
     </div>
 <!-- =========================================================================END text container======================================
+    <!--============================================3 image container-==================================================================
+      This is the main flex container that holds everything.
+      It uses `flex-row` to arrange the main sections side-by-side.
+      `justify-center` centers the content horizontally.
+      `items-stretch` is the key here; it makes the columns stretch to the same height.
+    -->
+    <div class="flex flex-row items-stretch justify-center w-full max-w-6xl space-x-4 mb-4">
+
+        <!--
+          This column holds the first image and is set to 33% width.
+        -->
+        <div class="w-[25%] flex flex-col items-stretch">
+            <!-- Image 1, now in its own column -->
+            <img src="marathon.jpg" alt="islay" class="w-full h-full">
+        </div>
+
+        <div class="w-[25%] flex flex-col items-stretch">
+            <!-- Image 1, now in its own column -->
+            <img src="marathon2.jpg" alt="islay" class="w-full h-full">
+        </div>
+
+        <!--
+          This is the second column, set to 43% width, and holds Image 2.
+        -->
+        <div class="w-[25%] flex flex-col items-stretch">
+            <img src="marathon3.jpeg" alt="ball" class="w-full h-full">
+        </div>
+ <div class="w-[25%] flex flex-col items-stretch">
+            <img src="marathon6.jpeg" alt="ball" class="w-full h-full">
+        </div>
+
+        
+    </div>
+
+    <!--============================================END 3 image container-==================================================================
 <!-- ===============================================1 image plus text =================================================================================
       This is the new row with two images.
       - w-1/2 sets the total width of this row to 50% of the page.
@@ -403,7 +440,7 @@ Moving from their home in Dundee was difficult for Mum and Dad at first. They kn
           within the 50% width parent.
         -->
         <div class="flex flex-col items-center flex-1">
-            <img src="marathon.jpg" alt="New Image A" class="w-s/3">
+            <img src="marathon5.jpeg" alt="New Image A" class="w-s/3">
             <p class="text-lg text-lgmt-2 text-center text-gray-600">after the knee dislocation</p>
         </div>
 
