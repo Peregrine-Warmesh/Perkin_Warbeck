@@ -19,7 +19,7 @@
       - `bg-white` and `rounded-lg` give it a clean, card-like appearance.
     -->
 <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-lg shadow-lg mx-auto">
- <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">Florida photos</h1>
+ <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">GALLERY</h1>
         <p class="text-lg text-lgtext-gray-700 leading-relaxed">
 I've extracted these so one can see the bigger photos.
 
@@ -117,6 +117,49 @@ Click <a style="TEXT-DECORATION: underline" href="index.html">here</a> to go bac
     </div>
  <!-- ===============================================End Gallery Section =======================================================================-->
     <!-- ===============================================End Gallery Section =======================================================================-->
+    <!-- ===============================================4 way Gallery Section =======================================================================-->
+    <!-- ===============================================Gallery Section =======================================================================-->
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8"></h1>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="image-gallery">
+            <!-- Image 1 -->
+            <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105 gallery-item" data-fullsize-src="gallery9.jpg">
+                <img src="gallery9.jpg" alt="A pink and white placeholder image." class="rounded-lg shadow-md w-full h-auto">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                    <span class="text-white text-sm md:text-base font-semibold">View Full Size</span>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105 gallery-item" data-fullsize-src="gallery10a.jpg">
+                <img src="gallery10a.jpg" alt="A light blue and gray placeholder image." class="rounded-lg shadow-md w-full h-auto">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                    <span class="text-white text-sm md:text-base font-semibold">View Full Size</span>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105 gallery-item" data-fullsize-src="gallery11.jpg">
+                <img src="gallery11.jpg" alt="A purple and white placeholder image." class="rounded-lg shadow-md w-full h-auto">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                    <span class="text-white text-sm md:text-base font-semibold">View Full Size</span>
+                </div>
+            </div>
+  <!-- Image 3 -->
+            <div class="relative group cursor-pointer transition-transform duration-300 hover:scale-105 gallery-item" data-fullsize-src="gallery12.jpg">
+                <img src="gallery12.jpg" alt="A purple and white placeholder image." class="rounded-lg shadow-md w-full h-auto">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                    <span class="text-white text-sm md:text-base font-semibold">View Full Size</span>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+ <!-- ===============================================End Gallery Section =======================================================================-->
+    <!-- ===============================================End Gallery Section =======================================================================-->
+
     <!-- The Modal Overlay -->
     <div id="image-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
         <!-- Semi-transparent background -->
