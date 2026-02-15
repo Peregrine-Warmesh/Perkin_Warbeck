@@ -1,6 +1,4 @@
-This is a sleek update to your layout. I have modified the Poem Sections to use a "zigzag" pattern. On larger screens, the image will alternate between the right and left sides for each poem, creating a better visual flow. On mobile devices, they will still stack naturally for readability.
 
-I have also cleaned up the The Grand Tobacconer section where a small HTML tag was previously broken.
 
 HTML
 <!DOCTYPE html>
@@ -251,7 +249,50 @@ HTML
             </div>
         </div>
 
-    </div> <div class="w-full max-w-5xl mt-12 p-6 bg-white rounded-xl shadow-lg mx-auto text-center">
+
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">STEAMSHIP TO THE ISLES WITH MY OLD DOG BY MY SIDE AGAIN.</i>
+                  STEAMSHIP TO THE ISLES WITH MY OLD DOG BY MY SIDE AGAIN.<BR>
+
+Queen Elizabeth the Second invited me to tea<BR>
+She cooked me ’Palace Surprise’<BR>
+Because she knew I appreciated fine cuisine:<BR>
+Scrambled eggs fried in butter, garlic, and<BR>
+creme de menthe with a garnish of<BR>
+fresh blue orchids.<BR>
+We dined in silence and watched<BR>
+the larks in the clouds before dusk<BR>
+Afterwards she played her Cello<BR>
+and sang me a song she composed<BR>
+About the Church of England.<BR>
+I gently lit my pipe, and smiling a<BR>
+sentimental smile asked if she would<BR>
+Play me the tune about the Church of Scotland<BR>
+on her harmonica because it always<BR>
+broughi a romantic tear to my eye.<BR>
+Before I left to catch the last bus home,<BR>
+she sang an unaccompanied folk song<BR>
+in Gaelic about the Free Kirk that<BR>
+was full of ethnic charm and atmosphere.<BR>
+Then suddenly the past all flooded<BR>
+back and | felt as if | was on that<BR>
+MacBrayne’s steamship to the Isles with<BR>
+my old dog by my side again -<BR>
+The day the pistol shot<BR>
+rang out, the day<BR>
+she blew her brains<BR>
+out, the day all life seemed<BR>
+futile
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('steamship.png')">
+                <img src="steamship.png" alt="Image for These Things" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+  <div class="w-full max-w-5xl mt-12 p-6 bg-white rounded-xl shadow-lg mx-auto text-center">
         <div class="cursor-pointer" onclick="openModal('tobacconer.jpg')">
             <img src="tobacconer.jpg" alt="The Tobacconer in a previous life." class="mx-auto w-full max-w-lg mb-4 h-auto hover:opacity-80 transition-opacity">
         </div>
@@ -267,6 +308,10 @@ HTML
         </div>
     </div>
 
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('steamship.png')">
+                <img src="steamship.png" alt="Image for These Things" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
     <script>
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
