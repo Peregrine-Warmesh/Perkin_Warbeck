@@ -1,3 +1,8 @@
+This is a sleek update to your layout. I have modified the Poem Sections to use a "zigzag" pattern. On larger screens, the image will alternate between the right and left sides for each poem, creating a better visual flow. On mobile devices, they will still stack naturally for readability.
+
+I have also cleaned up the The Grand Tobacconer section where a small HTML tag was previously broken.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The official home page for the food and despair poetry of the sage RAF Gordon">
     <title>RAF Gordon</title>
-    <!-- This line tells search engines where to find your sitemap.xml file. -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-    <!-- Load Tailwind CSS for responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom style definition for Verdana font family used in the poem containers */
         .font-verdana-custom {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
@@ -19,360 +21,273 @@
             padding: 1rem;
         }
         img {
-            border-radius: 0.75rem; /* Increased rounded corners for aesthetics */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             object-fit: cover;
+        }
+        /* Custom utility for alternating flex direction on desktop */
+        @media (min-width: 640px) {
+            .poem-row:nth-child(even) {
+                flex-direction: row-reverse;
+            }
         }
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-8 flex flex-col items-center">
-    <!-- Main header, centered and styled -->
+    
     <h1 class="text-4xl font-extrabold text-gray-800 mb-8 tracking-wide text-center">
         The Food and Despair Poetry of RAF Gordon
     </h1>
 
-    <!-- Author Profile Section (Kept Centered/Stacked) -->
     <div class="w-full max-w-5xl p-6 bg-white rounded-xl shadow-lg mx-auto mb-12 text-center">
-        <p class="text-lg text-gray-700 leading-relaxed">
+        <div class="text-lg text-gray-700 leading-relaxed">
             <i class="block text-2xl font-bold mb-4">Roderick Atholl Forbes Gordon</i>
-            
-            <!-- Clickable Author Image -->
             <div class="inline-block cursor-pointer" onclick="openModal('rod.jpg')">
                 <img src="rod.jpg" alt="Portrait of Roderick Atholl Forbes Gordon" class="mx-auto w-48 h-48 rounded-full mb-4 shadow-xl hover:scale-[1.05] transition-transform">
             </div>
-            
-            <span class="block">Artist in life and in poetry<BR><BR>all images are clickable for full size</span>
-        </p>
-    </div>
-
-
-
-    <!-- START OF POEM 1: Humans -->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
-        
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">Humans</i>
-
-                Humans are a strange people, private and absurd<br>
-                They stalk about inflamed by curiosity<br>
-                Devious they wander<br>
-                Perpetrators of mysterious notions<br>
-                They fumble into slippers<br>
-                Painstakingly they boil up cocoa for reasons of its taste<br>
-                Their teeth enjoy toast for crunching brings such a nice feeling<br>
-                They chant "ho ho ho" at funny jokes and like to know awkward things about people in another land<br>
-                Little animals roam about in chains at their feet<br>
-                They keep them fluffy and buy them bones because they think them stupid<br>
-                And are proud that they are better creatures and much cleverer.
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('humans2.png')">
-            <img src="humans2.png" alt="Image for the poem Humans" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            <span class="block">Artist in life and in poetry<br><br>all images are clickable for full size</span>
         </div>
     </div>
-    <!-- END OF POEM 1 -->
 
-    <!-- START OF POEM 2: Animal Plot -->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
+    <div class="w-full max-w-5xl flex flex-col gap-8">
 
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">Animal Plot</i>
-
-                Animals greet me as I pass<BR>
-                Squeaks of quaint admiration<BR>
-                But darker creatures that love me not plot insidiously against my very blood<BR>
-                I amble by pretending not to sense their presence as they hop across walls to hide their wicked plans<BR>
-                They contrive to terminate my life quite soon in most unpleasant fashion<BR>
-                But I warn them in tones profound and thunderous<BR>
-                Be it evening frog or dawn light sparrow<BR>
-                I do not suffer torment from feathers or from farrow<BR>
-                The innocent squeak or hushed croak won't crush my living body<BR>
-                For I know fearsome friends most faithful<BR>
-                The fierce dog from the scrapyard's buckled twists<BR>
-                Has shiny fangs that sip blood-reddily<BR>
-                And mangle sinews of slime-clad frog<BR>
-                The next door horse pulverises small birds neath the ruthless hooves of horn<BR>
-                And midnight spiders sing requiem mass to the fallen frogs<BR>
-                And rebellious sparrows who dare to cross my path<BR>
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('animal.png')">
-            <img src="animal.png" alt="Image for the poem Animal Plot" class="w-full h-auto hover:scale-[1.02] transition-transform">
-        </div>
-    </div>
-    <!-- END OF POEM 2 -->
-
-    <!-- START OF POEM 3: Modern Bicycles -->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
-
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">Modern Bicycles</i>
-
-                Prancing on hooves<BR>
-                Obnoxious donkey<BR>
-                "I'll sell you to the man"<BR>
-                "No you won't"<BR>
-                "Yes I will"<BR>
-                because "for sale a bicycle"<BR>
-                unfortunately with broken dynamo<BR>
-                oily chain, whirring sound<BR>
-                days to travel at a snail's pace through fresh faced countryside<BR>
-                I never liked you horse<BR>
-                stinking nosebag and clattering feet<BR>
-                these are modern times you know<BR>
-                and in future all men will have bicycles<BR>
-                bicycles with lights<BR>
-                shiny bicycles<BR>
-                fast bicycles<BR>
-                black bicycles<BR>
-                green bicycles<BR>
-                striped bicycles<BR>
-                huge bicycles<BR>
-                yes rich and poor, policeman and sailor<BR>
-                all will wear bicycle clips<BR>
-                obnoxious donkey go away<BR>
-                I don't need you any more<BR>
-                clippety clop clippety clop clippety clop<BR>
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('bicycles.png')">
-            <img src="bicycles.png" alt="Image for the poem Modern Bicycles" class="w-full h-auto hover:scale-[1.02] transition-transform">
-        </div>
-    </div>
-    <!-- END OF POEM 3 -->
-
-    <!-- START OF POEM 4: The Grand Tobacconer -->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
-
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">The Grand Tobacconer</i>
-
-                Aha the Grand Tobaconner<BR>
-                'mongst sweet oaks and watermeadows does dwell<BR>
-                who speculates the ways of butterflies<BR>
-                but who wades in the bowels of hell<BR>
-                "kind sir "a gentleman once asked me<BR>
-                observing my ludicrous grin<BR>
-                "what news of the Grand Tobacconner, his own dear kith and kin"<BR>
-                there once was a sewage wastepipe<BR>
-                there once was a village green<BR>
-                there once was a Grand Tobacconer<                had he lived he'd have married a queen<BR>
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('tobacconer.png')">
-            <img src="tobacconer.png" alt="Image for the poem The Grand Tobacconer" class="w-full h-auto hover:scale-[1.02] transition-transform">
-        </div>
-    </div>
-    <!-- END OF POEM 4 -->
-<!-- START OF POEM 5: transmigration of the soul -->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
-        
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">CONFUSED ABOUT THE TRANSMIGRATION OF THE SOUL</i>
-
-A job as a dog<BR>
-A job as a moth<BR>
-A job as a spider<BR>
-A job as Edinburgh Castle<BR>
-| was a hen in Chicago<BR>
-a scorpion in Delhi<BR>
-a behemoth in Saigon<BR>
-a Parakeet in Brazil<BR>
-a greenfly in the 16th century<BR>
-a sock in norway<BR>
-a thought in France<BR>
-a memory in Tunisia<BR>
-<BR>
-It was I<BR>
-the London wasp at no. 27<BR>
-only three score years ago<BR>
-Stinging the old man<BR>
-lurking in his cap<BR>
-Buzzing round his pipe<BR>
-and rejoicing at his shriek<BR>
-<BR>
-But again i died in agony<BR>
-because of the boot and the<BR>
-ground.<BR>
-My soul explodes in jealously<BR>
-Inanimacy (I’ve always held)<BR>
-has no need in reincarnation<BR>
-(Oh to be a slab)<BR>
-<BR>
-But here am |<BR>
-Black and gold -<BR>
-Dying on a pavement<BR>
-with the world spinning round me<BR>
-this wasp in agony<BR>
-Predestination is an enemy<BR>
-its limits creativity<BR>
-And now I am a horse<BR>
-A nineteenth century horse.<BR>
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('soul.jpg')">
-            <img src="soul.jpg" alt="Image for the poem Humans" class="w-full h-auto hover:scale-[1.02] transition-transform">
-        </div>
-    </div>
-    <!-- END OF POEM 5 TRANSMIGRATION-->
-
-<!-- =============================START OF POEM 5: THESE THINGS =============================-->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
-        
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">THESE THINGS</i>
-THESE THINGS
-<br>
-You are strawberry custard<br>
-in a sky blue bowl<br>
-You are honey scented Brylcreme<br>
-in a champagne glass<br>
-You are a white pebble at the<br>
-bottom of a pool<br>
-on summer solstice dawn<br>
-You are lightning in an attic<br>
-where starlings never gather<br>
-You are a monument to the<br>
-Solar system caught in a<br>
-lonely jam jar<br>
-You are the feast of children<br>
-in the Lions head behind<br>
-Menagerie bars<br>
-You are not you I say<br>
-you are these things.
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('these_things.png')">
-            <img src="these_things.png" alt="Image for the poem Humans" class="w-full h-auto hover:scale-[1.02] transition-transform">
-        </div>
-    </div>
-    <!-- =============================END OF POEM 5 THESE THINGS--=============================>
-<!-- =============================START OF POEM 5: BEASTS AND ANGELS =============================-->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-2xl mx-auto font-verdana-custom flex flex-col sm:flex-row gap-8">
-        
-        <!-- Poem Text (Takes 60% of width on large screens) -->
-        <div class="sm:w-3/5">
-            <p class="text-xl text-gray-700 leading-relaxed">
-                <!-- Title -->
-                <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">BEASTS AND ANGELS</i>
-BEASTS AND ANGELS
-<br>
-Beasts<br>
-and<br>
-Angels<br>
-Beasts<br>
-and<br>
-Angels<br>
-Beasts<br>
-and<br>
-Angels<br>
-go<br>
-from<br>
-me:<br>
-BEAST -<br>
-Go!<br>
-ANGEL -<br>
-Go!<br>
-Beasts<br>
-and<br>
-Angels<br>
-GO FROM ME.
-            </p>
-        </div>
-
-        <!-- Image (Takes 40% of width on large screens) - Now Clickable -->
-        <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('beasts_and_angels.png')">
-            <img src="beasts_and_angels.png" alt="Image for the poem Humans" class="w-full h-auto hover:scale-[1.02] transition-transform">
-        </div>
-    </div>
-    <!-- =============================END OF POEM BEASTS AND ANGELS--=============================>
-
-
-    <!-- Final Image/Caption Section (Kept Centered/Stacked) -->
-    <div class="w-full max-w-5xl mt-8 p-6 bg-white rounded-xl shadow-lg mx-auto text-center">
-        <p class="text-lg text-gray-700 leading-relaxed">
-            <div class="cursor-pointer" onclick="openModal('tobacconer.jpg')">
-                <img src="tobacconer.jpg" alt="The Tobacconer in a previous life." class="mx-auto w-full max-w-lg mb-4 h-auto hover:opacity-80 transition-opacity">
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">Humans</i>
+                    Humans are a strange people, private and absurd<br>
+                    They stalk about inflamed by curiosity<br>
+                    Devious they wander<br>
+                    Perpetrators of mysterious notions<br>
+                    They fumble into slippers<br>
+                    Painstakingly they boil up cocoa for reasons of its taste<br>
+                    Their teeth enjoy toast for crunching brings such a nice feeling<br>
+                    They chant "ho ho ho" at funny jokes and like to know awkward things about people in another land<br>
+                    Little animals roam about in chains at their feet<br>
+                    They keep them fluffy and buy them bones because they think them stupid<br>
+                    And are proud that they are better creatures and much cleverer.
+                </p>
             </div>
-            <span class="block text-base italic">The Tobaconner in a previous life. <BR>Note the pipe.</span>
-        </p>
-    </div>
-    <BR>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('humans2.png')">
+                <img src="humans2.png" alt="Image for the poem Humans" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
 
-    <!-- Full-Screen Modal for Image Display -->
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">Animal Plot</i>
+                    Animals greet me as I pass<br>
+                    Squeaks of quaint admiration<br>
+                    But darker creatures that love me not plot insidiously against my very blood<br>
+                    I amble by pretending not to sense their presence as they hop across walls to hide their wicked plans<br>
+                    They contrive to terminate my life quite soon in most unpleasant fashion<br>
+                    But I warn them in tones profound and thunderous<br>
+                    Be it evening frog or dawn light sparrow<br>
+                    I do not suffer torment from feathers or from farrow<br>
+                    The innocent squeak or hushed croak won't crush my living body<br>
+                    For I know fearsome friends most faithful<br>
+                    The fierce dog from the scrapyard's buckled twists<br>
+                    Has shiny fangs that sip blood-reddily<br>
+                    And mangle sinews of slime-clad frog<br>
+                    The next door horse pulverises small birds neath the ruthless hooves of horn<br>
+                    And midnight spiders sing requiem mass to the fallen frogs<br>
+                    And rebellious sparrows who dare to cross my path<br>
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('animal.png')">
+                <img src="animal.png" alt="Image for the poem Animal Plot" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">Modern Bicycles</i>
+                    Prancing on hooves<br>
+                    Obnoxious donkey<br>
+                    "I'll sell you to the man"<br>
+                    "No you won't"<br>
+                    "Yes I will"<br>
+                    because "for sale a bicycle"<br>
+                    unfortunately with broken dynamo<br>
+                    oily chain, whirring sound<br>
+                    days to travel at a snail's pace through fresh faced countryside<br>
+                    I never liked you horse<br>
+                    stinking nosebag and clattering feet<br>
+                    these are modern times you know<br>
+                    and in future all men will have bicycles<br>
+                    bicycles with lights<br>
+                    shiny bicycles<br>
+                    fast bicycles<br>
+                    black bicycles<br>
+                    green bicycles<br>
+                    striped bicycles<br>
+                    huge bicycles<br>
+                    yes rich and poor, policeman and sailor<br>
+                    all will wear bicycle clips<br>
+                    obnoxious donkey go away<br>
+                    I don't need you any more<br>
+                    clippety clop clippety clop clippety clop<br>
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('bicycles.png')">
+                <img src="bicycles.png" alt="Image for the poem Modern Bicycles" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">The Grand Tobacconer</i>
+                    Aha the Grand Tobaconner<br>
+                    'mongst sweet oaks and watermeadows does dwell<br>
+                    who speculates the ways of butterflies<br>
+                    but who wades in the bowels of hell<br>
+                    "kind sir" a gentleman once asked me<br>
+                    observing my ludicrous grin<br>
+                    "what news of the Grand Tobacconner, his own dear kith and kin"<br>
+                    there once was a sewage wastepipe<br>
+                    there once was a village green<br>
+                    there once was a Grand Tobacconer<br>
+                    had he lived he'd have married a queen<br>
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('tobacconer.png')">
+                <img src="tobacconer.png" alt="Image for the poem The Grand Tobacconer" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">CONFUSED ABOUT THE TRANSMIGRATION OF THE SOUL</i>
+                    A job as a dog<br>
+                    A job as a moth<br>
+                    A job as a spider<br>
+                    A job as Edinburgh Castle<br>
+                    I was a hen in Chicago<br>
+                    a scorpion in Delhi<br>
+                    a behemoth in Saigon<br>
+                    a Parakeet in Brazil<br>
+                    a greenfly in the 16th century<br>
+                    a sock in norway<br>
+                    a thought in France<br>
+                    a memory in Tunisia<br><br>
+                    It was I<br>
+                    the London wasp at no. 27<br>
+                    only three score years ago<br>
+                    Stinging the old man<br>
+                    lurking in his cap<br>
+                    Buzzing round his pipe<br>
+                    and rejoicing at his shriek<br><br>
+                    But again i died in agony<br>
+                    because of the boot and the<br>
+                    ground.<br>
+                    My soul explodes in jealously<br>
+                    Inanimacy (I’ve always held)<br>
+                    has no need in reincarnation<br>
+                    (Oh to be a slab)<br><br>
+                    But here am I<br>
+                    Black and gold -<br>
+                    Dying on a pavement<br>
+                    with the world spinning round me<br>
+                    this wasp in agony<br>
+                    Predestination is an enemy<br>
+                    its limits creativity<br>
+                    And now I am a horse<br>
+                    A nineteenth century horse.
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('soul.jpg')">
+                <img src="soul.jpg" alt="Image for Transmigration" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">THESE THINGS</i>
+                    You are strawberry custard<br>
+                    in a sky blue bowl<br>
+                    You are honey scented Brylcreme<br>
+                    in a champagne glass<br>
+                    You are a white pebble at the<br>
+                    bottom of a pool<br>
+                    on summer solstice dawn<br>
+                    You are lightning in an attic<br>
+                    where starlings never gather<br>
+                    You are a monument to the<br>
+                    Solar system caught in a<br>
+                    lonely jam jar<br>
+                    You are the feast of children<br>
+                    in the Lions head behind<br>
+                    Menagerie bars<br>
+                    You are not you I say<br>
+                    you are these things.
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('these_things.png')">
+                <img src="these_things.png" alt="Image for These Things" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">BEASTS AND ANGELS</i>
+                    Beasts<br>and<br>Angels<br>
+                    Beasts<br>and<br>Angels<br>
+                    Beasts<br>and<br>Angels<br>
+                    go<br>from<br>me:<br>
+                    BEAST -<br>Go!<br>
+                    ANGEL -<br>Go!<br>
+                    Beasts<br>and<br>Angels<br>
+                    GO FROM ME.
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('beasts_and_angels.png')">
+                <img src="beasts_and_angels.png" alt="Image for Beasts and Angels" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+
+    </div> <div class="w-full max-w-5xl mt-12 p-6 bg-white rounded-xl shadow-lg mx-auto text-center">
+        <div class="cursor-pointer" onclick="openModal('tobacconer.jpg')">
+            <img src="tobacconer.jpg" alt="The Tobacconer in a previous life." class="mx-auto w-full max-w-lg mb-4 h-auto hover:opacity-80 transition-opacity">
+        </div>
+        <span class="block text-base italic text-gray-700">The Tobaconner in a previous life. <br>Note the pipe.</span>
+    </div>
+
     <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50 p-4" onclick="closeModal()">
         <div class="max-w-6xl max-h-full overflow-hidden relative" onclick="event.stopPropagation()">
-            <!-- Image will be injected here, and clicking it also closes the modal -->
             <img id="modalImage" class="rounded-xl shadow-2xl max-h-full w-auto mx-auto object-contain cursor-pointer" onclick="closeModal()">
-            
-            <!-- Close Button (X) -->
             <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl font-bold p-2 bg-gray-800 bg-opacity-50 rounded-full hover:bg-opacity-80 transition">
                 &times;
             </button>
         </div>
     </div>
 
-    <!-- JavaScript for Modal Logic -->
     <script>
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
 
-        /**
-         * Opens the modal and displays the clicked image.
-         * @param {string} imageSrc - The source URL of the image to display.
-         */
         function openModal(imageSrc) {
             modalImage.src = imageSrc;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
         }
 
-        /**
-         * Closes the modal and clears the image source.
-         */
         function closeModal() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            modalImage.src = ''; // Clear the image source
+            modalImage.src = '';
         }
         
-        // Allows closing the modal with the Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
             }
         });
-
     </script>
 </body>
 </html>
