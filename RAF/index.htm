@@ -229,7 +229,7 @@ HTML
                 <img src="these_things.png" alt="Image for These Things" class="w-full h-auto hover:scale-[1.02] transition-transform">
             </div>
         </div>
-
+<!--=========================================START of container for poem with image on the RHS=================================================================-->
         <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
             <div class="sm:w-3/5">
                 <p class="text-xl text-gray-700 leading-relaxed">
@@ -248,8 +248,8 @@ HTML
                 <img src="beasts_and_angels.png" alt="Image for Beasts and Angels" class="w-full h-auto hover:scale-[1.02] transition-transform">
             </div>
         </div>
-
-
+<!--=========================================END of container for poem with image on the RHS=================================================================-->
+<!--=========================================START of container for poem with image on the LHS=================================================================-->
         <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
             <div class="sm:w-3/5">
                 <p class="text-xl text-gray-700 leading-relaxed">
@@ -291,7 +291,48 @@ futile
                 <img src="steamship.png" alt="Image for These Things" class="w-full h-auto hover:scale-[1.02] transition-transform">
             </div>
         </div>
+<!--=========================================end of container for poem with image on the LHS=================================================================-->
+<!--=========================================START of container for poem with image on the RHS=================================================================-->
+        <div class="poem-row flex flex-col sm:flex-row gap-8 p-6 bg-white rounded-xl shadow-2xl font-verdana-custom">
+            <div class="sm:w-3/5">
+                <p class="text-xl text-gray-700 leading-relaxed">
+                    <i class="block text-3xl font-bold mb-6 text-center text-indigo-700">CLOSING TIME IN BROUGHTY</i>
+Home from the ’Ship Inn’ on Monday<BR>
+night, the evening is mellow and<BR>
+the air is clean<BR>
+Past the wee cottage I hear behind the<BR>
+blinds the old man swearing at his wife<BR>
+to an accompaniment of telly<BR>
+And old greasy Lizzie’s dirty chipper<BR>
+with the brown pottery cod slightly<BR>
+forbidding in the dusty darkened window.<BR>
 
+| remember the summer season,<BR>
+with Lizzie’s old smelly dog tied outside<BR>
+licking up the melted ice cream from the<BR>
+hot pavement, and the Glaswegians<BR>
+queing for pie suppers and pickled onions.<BR>
+
+
+Past the window of 'RF Fashions’ and the<BR>
+whole display of grey terylene trousers<BR>
+and nylon shirts | smell the Indian<BR>
+restaurant with the Broughty<BR>
+Ferry prices where people go when<BR>
+they’re pissed.<BR>
+
+Climbing up the brae I’m nearly home<BR>
+Down in Grey Street in the darkness<BR>
+after the pub the people roar,<BR>
+while on the hill affluent Presbyterian<BR>
+Volvo owners lie in bed and snore.<BR>
+                </p>
+            </div>
+            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('chipper.png')">
+                <img src="chipper.png" alt="Image for Beasts and Angels" class="w-full h-auto hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+<!--=========================================END of container for poem with image on the RHS=================================================================-->
   <div class="w-full max-w-5xl mt-12 p-6 bg-white rounded-xl shadow-lg mx-auto text-center">
         <div class="cursor-pointer" onclick="openModal('tobacconer.jpg')">
             <img src="tobacconer.jpg" alt="The Tobacconer in a previous life." class="mx-auto w-full max-w-lg mb-4 h-auto hover:opacity-80 transition-opacity">
@@ -308,9 +349,7 @@ futile
         </div>
     </div>
 
-            <div class="sm:w-2/5 flex items-center justify-center p-2 cursor-pointer" onclick="openModal('steamship.png')">
-                <img src="steamship.png" alt="Image for These Things" class="w-full h-auto hover:scale-[1.02] transition-transform">
-            </div>
+            
         </div>
     <script>
         const modal = document.getElementById('imageModal');
